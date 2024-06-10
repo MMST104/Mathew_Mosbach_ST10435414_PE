@@ -9,8 +9,8 @@ android {
 
     defaultConfig {
         applicationId = "com.example.imad_weather"
-        minSdk = 21
-        targetSdk = 33
+        minSdk = 26
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
