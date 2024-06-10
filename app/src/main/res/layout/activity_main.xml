@@ -30,4 +30,10 @@
         app:srcCompat="@drawable/weather_app"
         tools:ignore="ImageContrastCheck" />
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/screenshot_2024_06_10_123728" />
+
 </LinearLayout>
