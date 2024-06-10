@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">IMAD_WEATHER</string>
+    <string name="go_to_second_page">Go to Second Page</string>
+    <string name="mathew_mosbach_st10435414">Mathew_Mosbach_ST10435414</string>
+    <string name="appicon">AppIcon</string>
 </resources>

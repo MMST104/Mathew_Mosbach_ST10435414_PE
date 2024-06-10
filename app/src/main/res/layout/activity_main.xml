@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,18 +13,21 @@
         android:id="@+id/buttonToSecond"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Go to Second Page" />
+        android:text="@string/go_to_second_page" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Mathew_Mosbach_ST10435414" />
+        android:text="@string/mathew_mosbach_st10435414"
+        android:textColor="#8C9EFF" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="361dp"
-        app:srcCompat="@drawable/weather_app" />
+        android:contentDescription="@string/appicon"
+        app:srcCompat="@drawable/weather_app"
+        tools:ignore="ImageContrastCheck" />
 
 </LinearLayout>
