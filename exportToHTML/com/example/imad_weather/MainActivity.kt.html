@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>MainActivity.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #808080;}
+.s3 { color: #6a8759;}
+.s4 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+MainActivity.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.myapp</span>
+
+
+<span class="s1">import android.os.Bundle</span>
+<span class="s1">import android.widget.Button</span>
+<span class="s1">import androidx.appcompat.app.AppCompatActivity</span>
+<span class="s1">import com.example.imad_weather.R</span>
+
+<span class="s0">class </span><span class="s1">MainActivity : AppCompatActivity() {</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreate(savedInstanceState: Bundle?) {</span>
+        <span class="s0">super</span><span class="s1">.onCreate(savedInstanceState)</span>
+        <span class="s1">setContentView(R.layout.activity_main)</span>
+
+        <span class="s0">val </span><span class="s1">buttonToSecond: Button = findViewById(R.id.buttonToSecond)</span>
+        <span class="s1">buttonToSecond.setOnClickListener {</span>
+
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+    <span class="s0">class </span><span class="s1">WeeklyWeatherManager {</span>
+
+        <span class="s2">// Define arrays to store weather data for each day</span>
+        <span class="s1">private </span><span class="s0">val </span><span class="s1">daysOfWeek = arrayOf(</span><span class="s3">&quot;Monday&quot;</span><span class="s0">, </span><span class="s3">&quot;Tuesday&quot;</span><span class="s0">, </span><span class="s3">&quot;Wednesday&quot;</span><span class="s0">, </span><span class="s3">&quot;Thursday&quot;</span><span class="s0">, </span><span class="s3">&quot;Friday&quot;</span><span class="s0">, </span><span class="s3">&quot;Saturday&quot;</span><span class="s0">, </span><span class="s3">&quot;Sunday&quot;</span><span class="s1">)</span>
+        <span class="s1">private </span><span class="s0">val </span><span class="s1">temperatures = arrayOf(</span><span class="s4">25</span><span class="s0">, </span><span class="s4">26</span><span class="s0">, </span><span class="s4">27</span><span class="s0">, </span><span class="s4">28</span><span class="s0">, </span><span class="s4">29</span><span class="s0">, </span><span class="s4">30</span><span class="s0">, </span><span class="s4">31</span><span class="s1">) </span><span class="s2">// Example temperature data</span>
+        <span class="s1">private </span><span class="s0">val </span><span class="s1">conditions = arrayOf(</span><span class="s3">&quot;Sunny&quot;</span><span class="s0">, </span><span class="s3">&quot;Cloudy&quot;</span><span class="s0">, </span><span class="s3">&quot;Rainy&quot;</span><span class="s0">, </span><span class="s3">&quot;Stormy&quot;</span><span class="s0">, </span><span class="s3">&quot;Partly Cloudy&quot;</span><span class="s0">, </span><span class="s3">&quot;Windy&quot;</span><span class="s0">, </span><span class="s3">&quot;Snowy&quot;</span><span class="s1">) </span><span class="s2">// Example condition data</span>
+
+        <span class="s2">// Function to get weather data for a specific day</span>
+        <span class="s1">private </span><span class="s0">fun </span><span class="s1">getWeatherForDay(dayIndex: Int): String {</span>
+            <span class="s2">// Check if the dayIndex is within the valid range</span>
+            <span class="s0">return if </span><span class="s1">(dayIndex </span><span class="s0">in </span><span class="s4">0 </span><span class="s1">until daysOfWeek.size) {</span>
+                <span class="s2">// Get the weather data for the specified day</span>
+                <span class="s0">val </span><span class="s1">day = daysOfWeek[dayIndex]</span>
+                <span class="s0">val </span><span class="s1">temperature = temperatures[dayIndex]</span>
+                <span class="s0">val </span><span class="s1">condition = conditions[dayIndex]</span>
+                <span class="s3">&quot;Weather for </span><span class="s0">$</span><span class="s1">day</span><span class="s3">: Temperature: </span><span class="s0">$</span><span class="s1">temperature</span><span class="s3">°C, Condition: </span><span class="s0">$</span><span class="s1">condition</span><span class="s3">&quot;</span>
+            <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+                <span class="s2">// Return an error message if the dayIndex is out of range</span>
+                <span class="s3">&quot;Invalid day index&quot;</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+
+        <span class="s2">// Function to print weather data for the entire week</span>
+        <span class="s0">fun </span><span class="s1">printWeeklyWeather() {</span>
+            <span class="s0">for </span><span class="s1">(i </span><span class="s0">in </span><span class="s1">daysOfWeek.indices) {</span>
+                <span class="s1">println(getWeatherForDay(i))</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s0">fun </span><span class="s1">main() {</span>
+        <span class="s0">val </span><span class="s1">weeklyWeatherManager = WeeklyWeatherManager()</span>
+        <span class="s1">weeklyWeatherManager.printWeeklyWeather()</span>
+    <span class="s1">}</span>
+
+<span class="s1">}</span>
+
+</pre>
+</body>
+</html>
